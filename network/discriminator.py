@@ -12,31 +12,24 @@ import tensorflow as tf
 from tensorflow.python.keras import layers
 
 
-def make_discriminator_model(dataset='mnist'):
+def make_discriminator_model():
   """ implements discriminate.
-
-  Args:
-    dataset: mnist or cifar10 dataset. (default='mnist'). choice{'mnist', 'cifar'}.
 
   Returns:
     model.
 
   """
-  model = tf.keras.models.Sequential()
-  if dataset == 'mnist':
-    model.add(layers.Flatten(input_shape=[28, 28, 1]))
-  elif dataset == 'cifar':
-    model.add(layers.Flatten(input_shape=[32, 32, 3]))
+  model = tf.keras.Sequential()
+  model.add(layers.Conv2D(64, (5, 5), strides=(2, 2), padding='same',
+                          input_shape=[28, 28, 1]))
+  model.add(layers.LeakyReLU())
+  model.add(layers.Dropout(0.3))
 
-  model.add(layers.Dense(1024))
-  model.add(layers.LeakyReLU(alpha=0.2))
+  model.add(layers.Conv2D(128, (5, 5), strides=(2, 2), padding='same'))
+  model.add(layers.LeakyReLU())
+  model.add(layers.Dropout(0.3))
 
-  model.add(layers.Dense(512))
-  model.add(layers.LeakyReLU(alpha=0.2))
-
-  model.add(layers.Dense(256))
-  model.add(layers.LeakyReLU(alpha=0.2))
-
-  model.add(layers.Dense(1, activation='sigmoid'))
+  model.add(layers.Flatten())
+  model.add(layers.Dense(1))
 
   return model

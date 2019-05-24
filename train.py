@@ -28,8 +28,6 @@ import os
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--dataset', default='mnist', type=str,
-                    help='use dataset {mnist or cifar}.')
 parser.add_argument('--epochs', default=50, type=int,
                     help='Epochs for training.')
 args = parser.parse_args()
@@ -49,10 +47,10 @@ noise = tf.random.normal([16, 100])
 mnist_train_dataset, cifar_train_dataset = load_dataset(60000, 128, 50000, 64)
 
 # load network and optim paras
-generator = make_generator_model(args.dataset)
+generator = make_generator_model()
 generator_optimizer = generator_optimizer()
 
-discriminator = make_discriminator_model(args.dataset)
+discriminator = make_discriminator_model()
 discriminator_optimizer = discriminator_optimizer()
 
 checkpoint_dir, checkpoint, checkpoint_prefix = save_checkpoints(generator,
@@ -125,7 +123,4 @@ def train(dataset, epochs):
 
 
 if __name__ == '__main__':
-  if args.dataset == 'mnist':
-    train(mnist_train_dataset, args.epochs)
-  else:
-    train(cifar_train_dataset, args.epochs)
+  train(mnist_train_dataset, args.epochs)
