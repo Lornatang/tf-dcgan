@@ -544,5 +544,3 @@ But if one G generated samples may not be true, but D gives the correct evaluati
 - Write metrics code.
 - Create GIF.
 
-# Reference
-[Sakura55](https://blog.csdn.net/Sakura55/article/details/81512600)
