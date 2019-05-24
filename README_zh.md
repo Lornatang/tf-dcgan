@@ -543,6 +543,3 @@ G会根据这个反馈改进自身，提高D输出的概率值。
 - 编写FID代码。
 
 — 创建GIF。
-
-# 致谢
-[Sakura55](https://blog.csdn.net/Sakura55/article/details/81512600)
