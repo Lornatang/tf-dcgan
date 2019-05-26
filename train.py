@@ -34,7 +34,7 @@ args = parser.parse_args()
 print(args)
 
 # define model save path
-save_path = 'training_checkpoint'
+save_path = './training_checkpoint'
 
 # create dir
 if not os.path.exists(save_path):
