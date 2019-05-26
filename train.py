@@ -89,6 +89,7 @@ def train_step(images):
     zip(gradients_of_discriminator, discriminator.trainable_variables))
 
 
+@tf.function
 def train(dataset, epochs):
   """ train op
 
