@@ -11,7 +11,7 @@
 import tensorflow as tf
 
 # This method returns a helper function to compute cross entropy loss
-cross_entropy = tf.keras.losses.BinaryCrossentropy(from_logits=True)
+cross_entropy = tf.losses.BinaryCrossentropy(from_logits=True)
 
 
 def generator_loss(fake_output):
@@ -56,7 +56,7 @@ def generator_optimizer():
     optim loss.
 
   """
-  return tf.keras.optimizers.Adam(lr=1e-4)
+  return tf.optimizers.Adam(lr=1e-4)
 
 
 def discriminator_optimizer():
@@ -66,4 +66,4 @@ def discriminator_optimizer():
     optim loss.
 
   """
-  return tf.keras.optimizers.Adam(lr=1e-4)
+  return tf.optimizers.Adam(lr=1e-4)
