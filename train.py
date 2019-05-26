@@ -53,10 +53,10 @@ generator_optimizer = generator_optimizer()
 discriminator = make_discriminator_model()
 discriminator_optimizer = discriminator_optimizer()
 
-checkpoint_dir, checkpoint, checkpoint_prefix = save_checkpoints(generator,
-                                                                 discriminator,
-                                                                 generator_optimizer,
+checkpoint_dir, checkpoint, checkpoint_prefix = save_checkpoints(generator_optimizer,
                                                                  discriminator_optimizer,
+                                                                 generator,
+                                                                 discriminator,
                                                                  save_path)
 
 
