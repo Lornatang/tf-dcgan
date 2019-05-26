@@ -89,7 +89,6 @@ def train_step(images):
     zip(gradients_of_discriminator, discriminator.trainable_variables))
 
 
-@tf.function
 def train(dataset, epochs):
   """ train op
 
@@ -123,5 +122,4 @@ def train(dataset, epochs):
                            save_path)
 
 
-if __name__ == '__main__':
-  train(mnist_train_dataset, args.epochs)
+train(mnist_train_dataset, args.epochs)
