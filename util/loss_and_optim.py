@@ -56,7 +56,7 @@ def generator_optimizer():
     optim loss.
 
   """
-  return tf.keras.optimizers.Adam(lr=1e-4)
+  return tf.keras.optimizers.adam(lr=1e-4)
 
 
 def discriminator_optimizer():
@@ -66,4 +66,4 @@ def discriminator_optimizer():
     optim loss.
 
   """
-  return tf.keras.optimizers.Adam(lr=1e-4)
+  return tf.keras.optimizers.adam(lr=1e-4)
